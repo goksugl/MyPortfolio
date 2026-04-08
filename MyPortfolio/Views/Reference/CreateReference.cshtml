@@ -1,0 +1,46 @@
+﻿@model MyPortfolio.DAL.Entities.Reference
+
+@{
+    ViewData["Title"] = "CreateReference";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Referanslarım</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Yeni Referans Ekle</div>
+                    </div>
+                    <div class="card-body">
+                        
+                        <form method="post" enctype="multipart/form-data">
+                            
+                            <label>Ad Soyad</label>
+                            <input type="text" asp-for="NameSurname" class="form-control" />
+                            <br />
+
+                            <label>Ünvan / Şirket (Örn: Genel Müdür, X Yazılım A.Ş.)</label>
+                            <input type="text" asp-for="Title" class="form-control" />
+                            <br />
+
+                            <label>Referans Görseli Seç (Vesikalık veya Logo)</label>
+                            <input type="file" name="imageFile" class="form-control" />
+                            <br />
+
+                            <label>Yorum / Referans Metni</label>
+                            <textarea rows="5" asp-for="Comment" class="form-control"></textarea>
+                            <br />
+
+                            <button type="submit" class="btn btn-primary">Referansı Kaydet</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

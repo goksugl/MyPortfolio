@@ -1,0 +1,48 @@
+﻿@model Portfolio
+@{
+    ViewData["Title"] = "CreatePortfolio";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Portfolyo (Projelerim)</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Yeni Proje Ekle</div>
+                    </div>
+                    <div class="card-body">
+                        
+                        <form method="post" enctype="multipart/form-data">
+                            
+                            <label>Proje Başlığı</label>
+                            <input type="text" asp-for="Title" class="form-control" />
+                            <br />
+
+                            <label>Alt Başlık / Teknoloji</label>
+                            <input type="text" asp-for="SubTitle" class="form-control" />
+                            <br />
+
+                            <label>Proje Görseli Seç</label>
+                            <input type="file" name="imageFile" class="form-control" />
+                            <br />
+
+                            <label>Proje Linki (GitHub veya Site URL)</label>
+                            <input type="text" asp-for="Url" class="form-control" />
+                            <br />
+
+                            <label>Proje Detayları / Açıklama</label>
+                            <textarea rows="5" asp-for="Description" class="form-control"></textarea>
+                            <br />
+
+                            <button type="submit" class="btn btn-primary">Projeyi Kaydet</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

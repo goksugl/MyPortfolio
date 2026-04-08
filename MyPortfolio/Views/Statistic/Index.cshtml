@@ -1,0 +1,178 @@
+﻿@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">İstatistikler</h4>
+		
+		<div class="row">
+			<div class="col-md-3">
+				<div class="card card-stats card-warning">
+					<div class="card-body ">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-star"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Yetenek Sayısı</p>
+									<h4 class="card-title">@ViewBag.v1</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-stats card-success">
+					<div class="card-body ">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-comments"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Toplam Mesaj</p>
+									<h4 class="card-title">@ViewBag.v2</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-stats card-danger">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-envelope-o"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Okunmayanlar</p>
+									<h4 class="card-title">@ViewBag.v3</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-stats card-primary">
+					<div class="card-body ">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-check-circle"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">Okunanlar</p>
+									<h4 class="card-title">@ViewBag.v4</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Mesaj Okunma Durumu</div>
+					</div>
+					<div class="card-body">
+						<div class="chart-container" style="position: relative; height:300px;">
+							<canvas id="messagePieChart"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Yetenek Seviyeleri (%)</div>
+					</div>
+					<div class="card-body">
+						<div class="chart-container" style="position: relative; height:300px;">
+							<canvas id="skillBarChart"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		
+		var ctxPie = document.getElementById('messagePieChart').getContext('2d');
+		var messagePieChart = new Chart(ctxPie, {
+			type: 'pie',
+			data: {
+				labels: ['Okunmayan Mesajlar', 'Okunan Mesajlar'],
+				datasets: [{
+					data: [@ViewBag.v3, @ViewBag.v4],
+					backgroundColor: ['#f3545d', '#1d7af3'],
+					borderWidth: 0
+				}]
+			},
+			options: {
+				responsive: true,
+				maintainAspectRatio: false,
+				plugins: {
+					legend: { position: 'bottom' }
+				}
+			}
+		});
+
+		var skillTitles = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.SkillTitles));
+		var skillValues = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.SkillValues));
+
+		var ctxBar = document.getElementById('skillBarChart').getContext('2d');
+		var skillBarChart = new Chart(ctxBar, {
+			type: 'bar',
+			data: {
+				labels: skillTitles,
+				datasets: [{
+					label: 'Başarı Oranı (%)',
+					data: skillValues,
+					backgroundColor: '#1d7af3',
+					borderRadius: 4
+				}]
+			},
+			options: {
+				responsive: true,
+				maintainAspectRatio: false,
+				scales: {
+					y: {
+						beginAtZero: true,
+						max: 100
+					}
+				},
+				plugins: {
+					legend: { display: false } 
+				}
+			}
+		});
+
+	});
+</script>

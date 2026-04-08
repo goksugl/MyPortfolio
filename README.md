@@ -1,6 +1,7 @@
 # 🚀 Dinamik Portfolyo ve Yönetim Paneli (ASP.NET Core MVC)
+Bu proje, Murat Yücedağ'ın Udemy'de paylaşmış olduğu 2 parttan oluşan Asp.NET Core ile Portfolyo uygulamanızı geliştirin projesidir.  
 
-Bu proje, ASP.NET Core MVC mimarisi ve Entity Framework Core kullanılarak geliştirilmiş, uçtan uca dinamik bir kişisel portfolyo web sitesidir. Proje, ziyaretçilerin gördüğü şık bir **Önyüz (Vitrin)** ve tüm bu içeriklerin anlık olarak yönetilebildiği bir **Admin Paneli'nden** oluşmaktadır.
+Proje, ASP.NET Core MVC mimarisi ve Entity Framework Core kullanılarak geliştirilmiş, uçtan uca dinamik bir kişisel portfolyo web sitesidir. Proje, ziyaretçilerin gördüğü şık bir **Önyüz (Vitrin)** ve tüm bu içeriklerin anlık olarak yönetilebildiği bir **Admin Paneli'nden** oluşmaktadır.
 
 Yönetim Bilişim Sistemleri vizyonuyla, hem kullanıcı dostu tasarımın hem de verimli veritabanı yönetiminin kusursuz entegrasyonuna odaklanılarak geliştirilmiştir.
 
@@ -24,6 +25,8 @@ Yönetim Bilişim Sistemleri vizyonuyla, hem kullanıcı dostu tasarımın hem d
 <img width="1365" height="628" alt="Ekran görüntüsü 2026-04-08 185858" src="https://github.com/user-attachments/assets/695c5d31-2488-4860-913b-3452fc9c559b" />
 <img width="1365" height="630" alt="Ekran görüntüsü 2026-04-08 185924" src="https://github.com/user-attachments/assets/9c9ce28a-fe88-486e-a4bb-13a592ba59df" />
 <img width="1365" height="622" alt="Ekran görüntüsü 2026-04-08 190311" src="https://github.com/user-attachments/assets/3f1cd5b5-e202-4c77-a8cf-5164574bc9ea" />
+<img width="1348" height="620" alt="Ekran görüntüsü 2026-04-08 193153" src="https://github.com/user-attachments/assets/813c4da8-e1c4-41ca-b9a3-706c879ae468" />
+
 
 ### 2. Yönetim Paneli (Dashboard)
 
